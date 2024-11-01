@@ -1,10 +1,12 @@
-title: Jekyll Serial Programmer
+title: Drake.fyi
 markdown: kramdown
+
+baseurl: ""
 
 # for atom feed
 author:
-  name: Sharad Raj Singh Maurya
-  email: dev_sharad@outlook.com
+  name: Drakefy
+  email:
 
 plugins:
   - jemoji
@@ -22,5 +24,5 @@ defaults:
       path: "_posts"
     values:
       layout: "post"
-      permalink: /posts/:title/
+      permalink: /:title/
 exclude: ["sitemap.xml", "feed.xml", "LICENSE", "README.md"]
