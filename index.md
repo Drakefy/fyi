@@ -1,4 +1,4 @@
 ---
-title: Blog
+title: Ramblings
 layout: blog
 ---
