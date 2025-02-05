@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  {% seo %}
   {% include head.html %}
   <body>
     <main>
@@ -14,7 +15,7 @@
             {% endfor %}
           </div>
         </div>
-        <div class="content">{% include anchor_headings.html html=content anchorBody="#" %}</div>
+        <div class="content">{% include anchor_headings.html html=content anchorBody="#" h_max=page.h_max %}</div>
       </section>
       {% include footer.html %}
     </main>
