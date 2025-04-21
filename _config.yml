@@ -4,6 +4,8 @@ description: "drake.fyi"
 
 baseurl: ""
 
+license: "CC BY 4.0"
+
 # for atom feed
 author:
   name: Drakefy
