@@ -11,7 +11,8 @@ Monitor specsheets can tell you basic characteristics of a display, but not how 
 
 Some in-depth reviewers, in subjective order of best first:
 - [Monitors Unboxed](<https://www.youtube.com/@monitorsunboxed>)
-- [Rtings](<https://www.rtings.com/monitor>) with [Test Bench 2.0](<https://www.rtings.com/monitor/learn/research/pursuit-photo>) (ignore scoring, read data)
+- [Rtings](<https://www.rtings.com/monitor>) with [Test Bench 2.0](<https://www.rtings.com/monitor/learn/research/pursuit-photo>)
+  - Focus on data, scores can be arbitrary and weights nonsensical
 - [小雪人评测](<https://www.youtube.com/@%E5%B0%8F%E9%9B%AA%E4%BA%BA%E8%AF%84%E6%B5%8B>)
 - [好屏如潮](<https://space.bilibili.com/700608201/>)
 - [TFTCentral](<https://tftcentral.co.uk/>) + [YouTube](<https://www.youtube.com/@tftcentral>)
@@ -26,9 +27,13 @@ Some in-depth reviewers, in subjective order of best first:
 
 Some useful information (Spyder, OSRTT, etc.):
 - [optimumtech](<https://www.youtube.com/@optimumtech>)
+  - LDAT VESA style response time measurement is not very useful
 - [GTID](<https://www.youtube.com/@GTID>)
+  - OSRTT but no RGB tolerance specified, TestUFO with gray backgrounds
 - [颠佬评测](<https://space.bilibili.com/12145493/>)
+  - Calman Ultimate for color accuracy but unclear response time methodology and cropped TestUFO vertical lines
 - [数玩工场 / inteceh Digit Workshop](<https://www.youtube.com/@cgbdw>)
+  - Spyder measurements
 
 **Response time**
 
@@ -39,7 +44,7 @@ Advertised 1 ms LCD response time is never real. On (LCD) monitors, pixels are t
   <div style="text-align: left; font-size: 14px; margin-top: 4px; margin-bottom: 20px;">VESA-style response time measurement for one transition. Credit: <a href="https://tftcentral.co.uk/articles/response_time_testing" target="_blank">TFTCentral</a></div>
 </div>
 
-VESA specification is to measure the total response time from some starting luminosity and target luminosity, and then discard the first and last 10%, meaning 10-90% of the total luminosity change is the transition. However, you'll notice most reviews don't use percentages but 0 for black and 255 for white (8-bit color allows for 256 distinct shades), typically due to the use of gamma correction as eyes don't perceive shades from black to white linearly and can tell differences in darker shades better than light ones. OSRTT is the industry-standard measurement tool, but others may include LDAT or custom photodiode-based tools. Different reviewers may have different configurations for any, such as use of gamma correction or tolerances (e.g. measurement concludes when value +- 3-10 GtG from target). Thus, the numbers from different reviewers often aren't directly comparable.
+VESA specification is to measure the total response time from some starting luminosity and target luminosity, and then discard the first and last 10%, meaning 10-90% of the total luminosity change is the transition. However, you'll notice most reviews don't use percentages but 0 for black and 255 for white (8-bit color allows for 256 distinct shades), typically due to the use of gamma correction as eyes don't perceive shades from black to white linearly and can tell differences in darker shades better than light ones. OSRTT is the industry-standard measurement tool, but others may include LDAT or custom photodiode-based tools. Different reviewers may have different configurations for any, such as use of gamma correction or tolerances (e.g. measurement concludes when value +- 3-10 shades from target). Thus, the numbers from different reviewers often aren't directly comparable.
 
 <div style="text-align: center; font-size: 0;">
   <img src="{{site.baseurl}}/assets/images/q27g3xmn_monitors_unboxed.png" height="270px" style="margin: 0; vertical-align: bottom; display: inline-block;" />
@@ -52,7 +57,17 @@ For in-depth information on this topic, see the following:
 - TFTCentral: [Response Time Testing – Pitfalls, Improvements and Updating Our Methodology](<https://tftcentral.co.uk/articles/response_time_testing>)
 - Blur Busters: [GtG versus MPRT: Frequently Asked Questions About Pixel Response On Displays](<https://blurbusters.com/gtg-versus-mprt-frequently-asked-questions-about-display-pixel-response/>)
 
-Other motion clarity tools include panning images (pursuit photos) such as [TestUFO](<https://testufo.com/ghosting>), [Smooth Frog](<https://www.aperturegrille.com/software/>) and [Rtings Test Bench 2.0 Pursuit](<https://testufo.com/rtings>), which aim to provide a "what you see is what you get" picture of GtG-related ghosting and refresh rate related moving picture response time (MPRT). These have separate indicators for whether the pursuit photo was taken properly (dots form vertical lines), but many reviewers crop this out in their photos. For in-depth information on this topic, see the following:
+Other motion clarity tools include panning images (pursuit photos) such as [TestUFO](<https://testufo.com/ghosting>), [Smooth Frog](<https://www.aperturegrille.com/software/>) and [Rtings Test Bench 2.0 Pursuit](<https://testufo.com/rtings>), which aim to provide a "what you see is what you get" picture of GtG-related ghosting and refresh rate related moving picture response time (MPRT). These have separate indicators for whether the pursuit photo was taken properly (dots form vertical lines), but many reviewers crop this out in their photos.
+
+
+
+<div style="text-align: center; font-size: 0;">
+  <img src="{{site.baseurl}}/assets/images/testufo_discorz.png" height="270px" style="margin: 0; vertical-align: bottom; display: inline-block;" />
+  <img src="{{site.baseurl}}/assets/images/xb252q_blurbusters.apng" height="270px" style="margin: 0; vertical-align: bottom; display: inline-block;" />
+  <div style="text-align: left; font-size: 14px; margin-top: 4px; margin-bottom: 20px;">Simulated TestUFO with instant 0ms response time (left). Credit: <a href="https://forums.blurbusters.com/memberlist.php?mode=viewprofile&u=5224" target="_blank">Discorz</a> Ghosting and overshoot on flawed GtG response (right). Credit: <a href="https://blurbusters.com/faq/lcd-overdrive-artifacts/" target="_blank">Blur Busters</a></div>.
+</div>
+
+For in-depth information on this topic, see the following:
 - Blur Busters: [HOWTO: Pursuit Camera With Motion Tests](<https://blurbusters.com/motion-tests/pursuit-camera/>)
 - Aperture Grille: [Smooth Frog: An Updated Version of Frog Pursuit](<https://www.youtube.com/watch?v=1KF_1fYT8ZA>)
 - Rtings: [How Our New Pursuit Pattern Makes Comparing Monitors Easier](<https://www.rtings.com/monitor/learn/research/pursuit-photo>)
