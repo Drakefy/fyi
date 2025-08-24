@@ -40,15 +40,15 @@ Some useful information (Spyder, OSRTT, etc.):
 Advertised 1 ms LCD response time is never real. On (LCD) monitors, pixels are typically made up of 3 subpixels for the red, green and blue channels where all of these subpixels are internally just gray with a color filter on top. Gray-to-gray (GtG) response time refers to how long it takes for a (sub)pixel to change from one shade of gray to another, 0% being black and 100% being white. This controls the shade of each primary color for a pixel. On LCDs, response time isn't uniform and depends on the starting shade and target shade for each (sub)pixel. Response time testing usually includes going through some test patterns of different gray values and forming a heatmap of how long a transition takes. Response times longer than the refresh interval of a display will cause trails on moving objects (ghosting) or visible artifacts when missing the target shade with over/undershoot from aggressive overdrive.
 
 <div style="text-align: center; font-size: 0;">
-  <img src="{{site.baseurl}}/assets/images/tftcentral_rt.gif" height="270px" style="margin: 0; vertical-align: bottom; display: inline-block;" />
+  <img src="{{site.baseurl}}/assets/images/tftcentral_rt.gif" style="max-height: 270px; max-width: 100%; height: auto; width: auto; object-fit: contain; margin: 0; vertical-align: bottom; display: inline-block;" />
   <div style="text-align: left; font-size: 14px; margin-top: 4px; margin-bottom: 20px;">VESA-style response time measurement for one transition. Credit: <a href="https://tftcentral.co.uk/articles/response_time_testing" target="_blank">TFTCentral</a></div>
 </div>
 
 VESA specification is to measure the total response time from some starting luminosity and target luminosity, and then discard the first and last 10%, meaning 10-90% of the total luminosity change is the transition. However, you'll notice most reviews don't use percentages but 0 for black and 255 for white (8-bit color allows for 256 distinct shades), typically due to the use of gamma correction as eyes don't perceive shades from black to white linearly and can tell differences in darker shades better than light ones. OSRTT is the industry-standard measurement tool, but others may include LDAT or custom photodiode-based tools. Different reviewers may have different configurations for any, such as use of gamma correction or tolerances (e.g. measurement concludes when value +- 3-10 shades from target). Thus, the numbers from different reviewers often aren't directly comparable.
 
 <div style="text-align: center; font-size: 0;">
-  <img src="{{site.baseurl}}/assets/images/q27g3xmn_monitors_unboxed.png" height="270px" style="margin: 0; vertical-align: bottom; display: inline-block;" />
-  <img src="{{site.baseurl}}/assets/images/q27g3xmn_rtings.png" height="270px" style="margin: 0; vertical-align: bottom; display: inline-block;" />
+  <img src="{{site.baseurl}}/assets/images/q27g3xmn_monitors_unboxed.png" style="max-height: 270px; max-width: 100%; height: auto; width: auto; object-fit: contain; margin: 0; vertical-align: bottom; display: inline-block;" />
+  <img src="{{site.baseurl}}/assets/images/q27g3xmn_rtings.png" style="max-height: 270px; max-width: 100%; height: auto; width: auto; object-fit: contain; margin: 0; vertical-align: bottom; display: inline-block;" />
   <div style="text-align: left; font-size: 14px; margin-top: 4px; margin-bottom: 20px;">Gamma-corrected response time testing by <a href="https://www.youtube.com/watch?v=XbQ8Pe4WVxc" target="_blank">Monitors Unboxed</a> and <a href="https://www.rtings.com/monitor/reviews/aoc/q27g3xmn" target="_blank">Rtings</a> for the same model. Note different results.</div>
 </div>
 
@@ -62,9 +62,9 @@ Other motion clarity tools include panning images (pursuit photos) such as [Test
 
 
 <div style="text-align: center; font-size: 0;">
-  <img src="{{site.baseurl}}/assets/images/testufo_discorz.png" height="270px" style="margin: 0; vertical-align: bottom; display: inline-block;" />
-  <img src="{{site.baseurl}}/assets/images/xb252q_blurbusters.apng" height="270px" style="margin: 0; vertical-align: bottom; display: inline-block;" />
-  <div style="text-align: left; font-size: 14px; margin-top: 4px; margin-bottom: 20px;">Simulated TestUFO with instant 0ms response time (left). Credit: <a href="https://forums.blurbusters.com/memberlist.php?mode=viewprofile&u=5224" target="_blank">Discorz</a> Ghosting and overshoot on flawed GtG response (right). Credit: <a href="https://blurbusters.com/faq/lcd-overdrive-artifacts/" target="_blank">Blur Busters</a></div>.
+  <img src="{{site.baseurl}}/assets/images/testufo_discorz.png" style="max-height: 270px; max-width: 100%; height: auto; width: auto; object-fit: contain; margin: 0; vertical-align: bottom; display: inline-block;" />
+  <img src="{{site.baseurl}}/assets/images/xb252q_blurbusters.apng" style="max-height: 270px; max-width: 100%; height: auto; width: auto; object-fit: contain; margin: 0; vertical-align: bottom; display: inline-block;" />
+  <div style="text-align: left; font-size: 14px; margin-top: 4px; margin-bottom: 20px;">Simulated TestUFO with instant 0ms response time (left). Credit: <a href="https://forums.blurbusters.com/memberlist.php?mode=viewprofile&u=5224" target="_blank">Discorz</a> Ghosting and overshoot on flawed GtG response (right). Credit: <a href="https://blurbusters.com/faq/lcd-overdrive-artifacts/" target="_blank">Blur Busters</a></div>
 </div>
 
 For in-depth information on this topic, see the following:
@@ -78,8 +78,8 @@ For in-depth information on this topic, see the following:
 Most internet content is mastered to an old color standard called sRGB. However, many gaming monitors are much wider gamut, often around 95%+ DCI-P3 which ends up oversaturated for sRGB content. This is technically not accurate, but might still be preferred as sRGB covers a relatively small amount of the visible spectrum. Basically all gaming monitor reviews use consumer or prosumer grade colorimeters (e.g. Calibrite, Spyder) to measure adherence to some color gamut (sRGB, DCI-P3, Rec.2020), color temperature / white point and  EOTF (electro-optical transfer function, also known as a tone reproduction curve, TRC, or gamma). However, much of the whitepoint depends on spectral power density emitted by the display which varies between panels.
 
 <div style="text-align: center; font-size: 0;">
-  <img src="{{site.baseurl}}/assets/images/aw2725q_spd.png" height="270px" style="margin: 0; vertical-align: bottom; display: inline-block;" />
-  <img src="{{site.baseurl}}/assets/images/27g850a_spd.png" height="270px" style="margin: 0; vertical-align: bottom; display: inline-block;" />
+  <img src="{{site.baseurl}}/assets/images/aw2725q_spd.png" style="max-height: 270px; max-width: 100%; height: auto; width: auto; object-fit: contain; margin: 0; vertical-align: bottom; display: inline-block;" />
+  <img src="{{site.baseurl}}/assets/images/27g850a_spd.png" style="max-height: 270px; max-width: 100%; height: auto; width: auto; object-fit: contain; margin: 0; vertical-align: bottom; display: inline-block;" />
   <div style="text-align: left; font-size: 14px; margin-top: 4px; margin-bottom: 20px;">Spectral power distribution for QD-OLED and Nano-IPS. Credit: <a href="https://www.youtube.com/@%E5%B0%8F%E9%9B%AA%E4%BA%BA%E8%AF%84%E6%B5%8B/" target="_blank">小雪人评测</a></div>
 </div>
 
