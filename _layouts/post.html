@@ -8,7 +8,13 @@
       <section class="article">
         <div class="article-header">
           <h2 class="article-title">{{page.title}}</h2>
-          <small class="date">{{page.date | date_to_string}} | {{page.author | default: site.author.name}} - Licensed under {{page.license | default: site.license}}</small>
+          <small class="date">
+          {{page.date | date_to_string}}
+          {%- if page.date_modified -%}
+          &nbsp;// Updated {{page.date_modified | date_to_string}}
+          {%- endif -%}
+          &nbsp;| {{page.author | default: site.author.name}} - Licensed under {{page.license | default: site.license}}</small>
+          </small>
           <div class="categories">
             {% for c in page.categories %}
             <a href="#!" class="category">{{c}}</a>
