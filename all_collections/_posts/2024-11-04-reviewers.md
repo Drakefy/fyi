@@ -1,6 +1,7 @@
 ---
 title: What is an in-depth review?
-date: 2025-04-01 16:00:00 +0200
+date: 2024-11-04 17:00:00 +0200
+date_modified: 2025-08-24 09:00:00 +0300
 categories: [Monitors]
 permalink: /in-depth-review/
 ---
