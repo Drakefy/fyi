@@ -26,5 +26,109 @@
       {% include footer.html %}
     </main>
     {% include category-modal.html%}
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const tables = document.querySelectorAll(".content table");
+        tables.forEach((table) => {
+          const tableHeaders = Array.from(table.querySelectorAll("th"));
+          if (tableHeaders.length === 0) return;
+          const headers = tableHeaders.map(th => th.textContent.trim());
+
+          const rows = table.querySelectorAll("tbody tr");
+          rows.forEach(row => {
+            const cells = Array.from(row.querySelectorAll("td"));
+            cells.forEach((cell, i) => {
+              if (headers[i]) {
+                cell.setAttribute("data-label", headers[i]);
+              }
+            });
+
+            // Group columns into main vs expandable
+            const expandableIndices = [];
+            const mainIndices = [];
+            headers.forEach((h, i) => {
+              if (["Reviews", "Note"].includes(h) || i >= 3) {
+                expandableIndices.push(i);
+              } else {
+                mainIndices.push(i);
+              }
+            });
+
+            // Make main cells hidden since we combine them into the header
+            if (cells.length > 0) {
+              mainIndices.forEach(index => {
+                if (cells[index]) cells[index].classList.add("mobile-hidden-cell");
+              });
+            }
+
+            const hasExpandableColumns = expandableIndices.length > 0 && cells.length > 3;
+            let hasContent = false;
+            let innerContainer = null;
+            let details = null;
+            
+            if (hasExpandableColumns) {
+              details = document.createElement("details");
+              details.className = "mobile-expand";
+              
+              innerContainer = document.createElement("div");
+              innerContainer.className = "mobile-expand-inner";
+
+              headers.forEach((_, index) => {
+                const cell = cells[index];
+                if (!cell) return;
+                cell.classList.add("mobile-hidden-cell");
+                if (cell.innerHTML.trim() === "") return;
+                
+                hasContent = true;
+                const rowDiv = document.createElement("div");
+                rowDiv.className = "mobile-cell-row";
+                
+                const labelSpan = document.createElement("span");
+                labelSpan.className = "mobile-cell-label";
+                labelSpan.textContent = cell.getAttribute("data-label");
+                
+                const contentSpan = document.createElement("span");
+                contentSpan.className = "mobile-cell-content";
+                contentSpan.innerHTML = cell.innerHTML;
+
+                rowDiv.appendChild(labelSpan);
+                rowDiv.appendChild(contentSpan);
+                innerContainer.appendChild(rowDiv);
+              });
+            }
+
+            // Create the combined title cell (either a regular td or details summary if it expands)
+            const headerContent = document.createElement("div");
+            headerContent.className = "mobile-title-container";
+            if (mainIndices.length >= 2) {
+              const brand = cells[0] ? cells[0].innerHTML : "";
+              const model = cells[1] ? cells[1].innerHTML : "";
+              const spec = cells[2] ? cells[2].innerHTML : "";
+              headerContent.innerHTML = `
+                <div class="mobile-title-main"><strong>${brand}</strong> ${model}</div>
+                ${spec ? `<div class="mobile-title-spec">${spec}</div>` : ""}
+              `;
+            } else {
+              headerContent.innerHTML = `<div class="mobile-title-main"><strong>${cells[0] ? cells[0].innerHTML : ""}</strong></div>`;
+            }
+
+            const headerCell = document.createElement("td");
+            headerCell.className = "mobile-header-cell";
+
+            if (hasContent && details) {
+              const summary = document.createElement("summary");
+              summary.appendChild(headerContent);
+              details.appendChild(summary);
+              details.appendChild(innerContainer);
+              headerCell.appendChild(details);
+            } else {
+              headerCell.appendChild(headerContent);
+            }
+            
+            row.insertBefore(headerCell, row.firstChild);
+          });
+        });
+      });
+    </script>
   </body>
 </html>
